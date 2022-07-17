@@ -26,5 +26,17 @@ changeBuildType(RelativeId("Build")) {
                 localRepoScope = MavenBuildStep.RepositoryScope.MAVEN_DEFAULT
             }
         }
+        insert(1) {
+            maven {
+                name = "test not relese branch"
+
+                conditions {
+                    doesNotEqual("teamcity.build.branch", "master")
+                }
+                goals = "clean test"
+                userSettingsSelection = "maven"
+                localRepoScope = MavenBuildStep.RepositoryScope.MAVEN_DEFAULT
+            }
+        }
     }
 }
