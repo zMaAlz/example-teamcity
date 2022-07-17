@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.sharedResource
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -28,6 +29,14 @@ version = "2022.04"
 project {
 
     buildType(Build)
+
+    features {
+        sharedResource {
+            id = "PROJECT_EXT_3"
+            name = "Quota"
+            resourceType = quoted(10)
+        }
+    }
 }
 
 object Build : BuildType({
