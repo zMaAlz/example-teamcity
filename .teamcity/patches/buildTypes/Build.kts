@@ -17,6 +17,10 @@ changeBuildType(RelativeId("Build")) {
         insert(0) {
             maven {
                 name = "Build from pom"
+
+                conditions {
+                    equals("teamcity.build.branch.is_default", "true")
+                }
                 goals = "clean deploy"
                 userSettingsSelection = "maven"
                 localRepoScope = MavenBuildStep.RepositoryScope.MAVEN_DEFAULT
