@@ -16,6 +16,7 @@ changeBuildType(RelativeId("Build")) {
         insert(0) {
             maven {
                 name = "Build from pom"
+                runnerArgs = "-e"
                 userSettingsSelection = "maven"
             }
         }
