@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.MavenBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.ui.*
 
@@ -16,8 +17,9 @@ changeBuildType(RelativeId("Build")) {
         insert(0) {
             maven {
                 name = "Build from pom"
-                goals = "clean test"
+                goals = "clean test package"
                 userSettingsSelection = "maven"
+                localRepoScope = MavenBuildStep.RepositoryScope.MAVEN_DEFAULT
             }
         }
     }
