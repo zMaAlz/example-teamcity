@@ -17,7 +17,6 @@ changeBuildType(RelativeId("Build")) {
         insert(0) {
             maven {
                 name = "Build from pom"
-                enabled = false
                 goals = "clean deploy"
                 userSettingsSelection = "maven"
                 localRepoScope = MavenBuildStep.RepositoryScope.MAVEN_DEFAULT
