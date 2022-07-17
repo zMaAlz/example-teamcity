@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildFeatures.freeDiskSpace
 import jetbrains.buildServer.configs.kotlin.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.buildSteps.MavenBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
@@ -45,6 +46,11 @@ changeBuildType(RelativeId("Build")) {
     features {
         add {
             swabra {
+            }
+        }
+        add {
+            freeDiskSpace {
+                failBuild = true
             }
         }
     }
