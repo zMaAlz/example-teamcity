@@ -23,7 +23,7 @@ public class WelcomerTest {
 		assertThat(welcomer.sayFarewell(), containsString("hunter"));
 	}
 	@Test
-	public void welcomerSaysSilver(){
+	public void welcomerSaysGold(){
 		assertThat(welcomer.sayNeedGold(), containsString("gold"));
 	}
 }
