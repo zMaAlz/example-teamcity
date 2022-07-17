@@ -16,7 +16,7 @@ changeBuildType(RelativeId("Build")) {
     steps {
         insert(0) {
             maven {
-                name = "Build from pom"
+                name = "Deploy relese"
 
                 conditions {
                     equals("teamcity.build.branch.is_default", "true")
