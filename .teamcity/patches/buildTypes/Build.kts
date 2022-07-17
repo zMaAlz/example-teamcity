@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.buildSteps.MavenBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.ui.*
@@ -37,6 +38,13 @@ changeBuildType(RelativeId("Build")) {
                 runnerArgs = "-Dmaven.test.failure.ignore=true"
                 userSettingsSelection = "maven"
                 localRepoScope = MavenBuildStep.RepositoryScope.MAVEN_DEFAULT
+            }
+        }
+    }
+
+    features {
+        add {
+            swabra {
             }
         }
     }
