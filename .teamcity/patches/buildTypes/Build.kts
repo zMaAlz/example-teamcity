@@ -6,7 +6,6 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.buildSteps.MavenBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
-import jetbrains.buildServer.configs.kotlin.sharedResources
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -57,11 +56,6 @@ changeBuildType(RelativeId("Build")) {
         }
         add {
             perfmon {
-            }
-        }
-        add {
-            sharedResources {
-                writeLock("Quota")
             }
         }
     }
